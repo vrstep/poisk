@@ -1,0 +1,41 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://tree frzmes/treesome1.png" type="Texture" id=1]
+[ext_resource path="res://tree frzmes/treesome4.png" type="Texture" id=2]
+[ext_resource path="res://tree frzmes/treesome2.png" type="Texture" id=3]
+[ext_resource path="res://tree frzmes/treesome5.png" type="Texture" id=4]
+[ext_resource path="res://tree frzmes/treesome3.png" type="Texture" id=5]
+
+[sub_resource type="AtlasTexture" id=178]
+atlas = ExtResource( 3 )
+region = Rect2( 3, 0, 125, 128 )
+
+[sub_resource type="AtlasTexture" id=177]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=179]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=180]
+atlas = ExtResource( 2 )
+region = Rect2( 3, 0, 125, 128 )
+
+[sub_resource type="AtlasTexture" id=181]
+atlas = ExtResource( 4 )
+region = Rect2( 5, 0, 123, 128 )
+
+[sub_resource type="SpriteFrames" id=176]
+animations = [ {
+"frames": [ SubResource( 178 ), SubResource( 178 ), SubResource( 178 ), SubResource( 178 ), SubResource( 177 ), SubResource( 177 ), SubResource( 179 ), SubResource( 179 ), SubResource( 180 ), SubResource( 180 ), SubResource( 181 ), SubResource( 181 ), SubResource( 181 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[node name="the great tree" type="AnimatedSprite"]
+position = Vector2( -89.875, 10.192 )
+scale = Vector2( 1.246, 1.32512 )
+frames = SubResource( 176 )
+playing = true

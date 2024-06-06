@@ -1,0 +1,29 @@
+{
+	"color": "#ffffffff",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1670555513.json",
+	"mirror_portraits": false,
+	"name": "Ертемир",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://dialogues/mc sprites/казах1.png"
+		},
+		{
+			"name": "казах2",
+			"path": "res://dialogues/mc sprites/казах2.png"
+		},
+		{
+			"name": "казах4",
+			"path": "res://dialogues/mc sprites/казах4.png"
+		}
+	],
+	"scale": 100,
+	"theme": ""
+}

@@ -1,0 +1,146 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Scripts/minotaur.gd" type="Script" id=1]
+[ext_resource path="res://sprites/shaitan sleep.png" type="Texture" id=2]
+[ext_resource path="res://sprites/selfmade/minotaur2.png" type="Texture" id=3]
+[ext_resource path="res://sprites/selfmade/minotaur1.png" type="Texture" id=4]
+
+[sub_resource type="CircleShape2D" id=97]
+radius = 65.192
+
+[sub_resource type="AtlasTexture" id=170]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 95, 85 )
+
+[sub_resource type="AtlasTexture" id=171]
+atlas = ExtResource( 3 )
+region = Rect2( 95, 0, 95, 85 )
+
+[sub_resource type="AtlasTexture" id=172]
+atlas = ExtResource( 3 )
+region = Rect2( 190, 0, 95, 85 )
+
+[sub_resource type="AtlasTexture" id=173]
+atlas = ExtResource( 3 )
+region = Rect2( 285, 0, 95, 85 )
+
+[sub_resource type="AtlasTexture" id=174]
+atlas = ExtResource( 3 )
+region = Rect2( 380, 0, 95, 85 )
+
+[sub_resource type="AtlasTexture" id=182]
+atlas = ExtResource( 2 )
+region = Rect2( 202, 0, 101, 45 )
+
+[sub_resource type="AtlasTexture" id=183]
+atlas = ExtResource( 2 )
+region = Rect2( 105, 0, 99, 45 )
+
+[sub_resource type="AtlasTexture" id=175]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 95, 82 )
+
+[sub_resource type="AtlasTexture" id=176]
+atlas = ExtResource( 4 )
+region = Rect2( 95, 0, 95, 82 )
+
+[sub_resource type="AtlasTexture" id=177]
+atlas = ExtResource( 4 )
+region = Rect2( 190, 0, 95, 82 )
+
+[sub_resource type="AtlasTexture" id=178]
+atlas = ExtResource( 4 )
+region = Rect2( 285, 0, 95, 82 )
+
+[sub_resource type="AtlasTexture" id=179]
+atlas = ExtResource( 4 )
+region = Rect2( 380, 0, 95, 82 )
+
+[sub_resource type="SpriteFrames" id=95]
+animations = [ {
+"frames": [ SubResource( 170 ), SubResource( 171 ), SubResource( 172 ), SubResource( 173 ), SubResource( 174 ) ],
+"loop": true,
+"name": "attack_right",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 182 ), SubResource( 183 ) ],
+"loop": true,
+"name": "idle",
+"speed": 2.0
+}, {
+"frames": [ SubResource( 175 ), SubResource( 176 ), SubResource( 177 ), SubResource( 178 ), SubResource( 179 ) ],
+"loop": true,
+"name": "run_right",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=102]
+radius = 14.0357
+
+[sub_resource type="RectangleShape2D" id=181]
+extents = Vector2( 8.76471, 5 )
+
+[sub_resource type="RectangleShape2D" id=96]
+extents = Vector2( 6.5, 7.5 )
+
+[sub_resource type="CapsuleShape2D" id=184]
+
+[node name="enemy" type="KinematicBody2D"]
+show_behind_parent = true
+position = Vector2( 259, 99 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+collision_mask = 2
+
+[node name="vision" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 97 )
+
+[node name="enemy_animation" type="AnimatedSprite" parent="."]
+position = Vector2( -0.5, -2.5 )
+scale = Vector2( 1.0625, 1.1875 )
+frames = SubResource( 95 )
+animation = "idle"
+playing = true
+
+[node name="is_close" type="Area2D" parent="."]
+visible = false
+position = Vector2( -1, -12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="is_close"]
+position = Vector2( 1, 13 )
+shape = SubResource( 102 )
+
+[node name="weapon" type="Area2D" parent="."]
+position = Vector2( -0.5, -2.5 )
+scale = Vector2( 1.0625, 1.1875 )
+
+[node name="kopye" type="CollisionShape2D" parent="weapon"]
+position = Vector2( 22.7646, 19.7369 )
+shape = SubResource( 181 )
+disabled = true
+
+[node name="kopye2" type="CollisionShape2D" parent="weapon"]
+position = Vector2( -22.1176, 19.7895 )
+shape = SubResource( 181 )
+disabled = true
+
+[node name="hit" type="Area2D" parent="."]
+
+[node name="hitbox" type="CollisionShape2D" parent="hit"]
+position = Vector2( -1.5, -0.5 )
+shape = SubResource( 96 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 184 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="animation_finished" from="enemy_animation" to="." method="_on_enemy_animation_animation_finished"]
+[connection signal="body_entered" from="is_close" to="." method="_on_is_close_body_entered"]
+[connection signal="body_exited" from="is_close" to="." method="_on_is_close_body_exited"]
+[connection signal="area_entered" from="hit" to="." method="_on_hit_area_entered"]

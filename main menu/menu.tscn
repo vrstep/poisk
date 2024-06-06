@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://main menu/menu.png" type="Texture" id=1]
+[ext_resource path="res://main menu/лого.png" type="Texture" id=2]
+[ext_resource path="res://main menu/menu.gd" type="Script" id=3]
+
+[node name="Main Scene" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 0.844
+margin_left = 1.0
+margin_right = 1456.0
+margin_bottom = 755.0
+rect_scale = Vector2( 0.267366, 0.239862 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_left = 3.0
+margin_top = 4.0
+margin_right = 163.0
+margin_bottom = 244.0
+rect_scale = Vector2( 0.820405, 0.743602 )
+texture = ExtResource( 2 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 5.0
+margin_top = 129.0
+margin_right = 68.0
+margin_bottom = 197.0
+rect_scale = Vector2( 0.871324, 0.68941 )
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+margin_right = 63.0
+margin_bottom = 20.0
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+margin_top = 24.0
+margin_right = 63.0
+margin_bottom = 44.0
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+margin_top = 48.0
+margin_right = 63.0
+margin_bottom = 68.0
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_Button2_pressed"]
+[connection signal="tree_entered" from="VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_tree_entered"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_Button3_pressed"]

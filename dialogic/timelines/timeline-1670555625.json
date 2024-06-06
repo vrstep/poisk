@@ -1,0 +1,27 @@
+{
+	"events": [
+		{
+			"character": "character-1670555513.json",
+			"event_id": "dialogic_001",
+			"portrait": "казах2",
+			"text": "О НЕТ! ЧТО ПРОИЗОШЛО?"
+		},
+		{
+			"character": "character-1670555513.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "МАМА! ПАПА! ОЧНИТЕСЬ!!!"
+		},
+		{
+			"character": "character-1670555513.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Кто это сделал с вами?"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1670555625.json",
+		"name": "timeline-1670555625"
+	}
+}
